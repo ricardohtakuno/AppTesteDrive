@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace AppTestDrive
+namespace AppTestDrive.Views
 {
     public class Veiculo
     {
@@ -16,10 +16,10 @@ namespace AppTestDrive
             get { return string.Format("R$ {0}", Preco); }
         }
     }
-	public partial class MainPage : ContentPage
+	public partial class ListagemView : ContentPage
 	{
         public List<Veiculo> Veiculos { get; set; }
-		public MainPage()
+		public ListagemView()
 		{
 			InitializeComponent();
 
@@ -33,9 +33,14 @@ namespace AppTestDrive
 		}
         private void ListViewVeiculos_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            
             var veiculo = (Veiculo)e.Item;
-
+            /*
             DisplayAlert("Test Drive", string.Format ("Você tocou no modelo '{0}', que custa {1}", veiculo.Nome, veiculo.PrecoFormatado), "ok");
+            */
+
+
+            Navigation.PushAsync(new DetalheView(veiculo));
         }
 	}
 }
