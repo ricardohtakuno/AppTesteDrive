@@ -4,8 +4,17 @@
              x:Class="AppTestDrive.Views.DetalheView" Title="(Binding Path=Veiculo.nome)">
 
     <StackLayout Padding="25">
-        <Label Text="Esta é a página DetalheView" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-        <Button x:Name="botaoProximo" Text="Próximo" Clicked="botaoProximo_Clicked"></Button>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="Acessórios">
+                    <SwitchCell Text="{Binding TextoFreioABS}" On="{Binding TemFreioABS}" />
+                    <SwitchCell Text="{Binding TextoArCondicionado}" On="{Binding TemArCondicionado}" />
+                    <SwitchCell Text="{Binding TextoMP3Player}" On="{Binding TemMP3Player}" />
+                    <TextCell Text="{Binding PrecoTotalFormatado}"></TextCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button x:Name="botaoProximo" Text="Próximo" Clicked="botaoProximo_Clicked" VerticalOptions="End"></Button>
     </StackLayout>
-    
+
 </ContentPage>
